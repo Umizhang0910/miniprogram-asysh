@@ -1,0 +1,149 @@
+/* pages/more/xingzuo/starsign-detail/starsign-detail.wxss */
+
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: -webkit-linear-gradient(top, white, #2af144);
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+swiper {
+  width: 750rpx;
+  height: 500rpx;
+}
+
+swiper-item {
+  padding-top: 60rpx;
+}
+
+swiper-item image {
+  width: 300rpx;
+  height: 367rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -150rpx;
+  border-radius: 5%;
+}
+
+swiper-item image.active {
+  transform: scale(1.14);
+  transition: all 0.2s ease-in 0s;
+}
+
+.date-list {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid white;
+  padding: 0 10rpx;
+}
+
+.date {
+  width: 20%;
+  height: 60rpx;
+  text-align: center;
+}
+
+.title {
+  font-size: 28rpx;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.selected {
+  border-bottom: 10rpx solid #f0f076;
+}
+
+.constellation {
+  display: flex;
+  flex-direction: column;
+}
+
+.stars-container {
+  display: flex;
+  flex-direction: row;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 0rpx 40rpx;
+}
+
+.year-container{
+  display: flex;
+  flex-direction: column;
+  border-bottom:1rpx solid white;
+  padding: 20rpx 0rpx;
+  margin: 0rpx 40rpx;
+}
+
+.date-time {
+  font-weight: bold;
+  margin-left: 200rpx;
+}
+
+.stars {
+  display: flex;
+  flex-direction: row;
+  margin-left: 24rpx;
+  margin-top: 20rpx;
+}
+
+.stars image {
+  padding-right: 5rpx;
+  height: 24rpx;
+  width: 24rpx;
+}
+
+.other-pro {
+  width: 300rpx;
+  text-align: left;
+  margin-left: 100rpx;
+}
+
+.desc {
+  padding: 10rpx 40rpx;
+  height: 250rpx;
+  overflow-y: auto;
+  /* margin: 0rpx 40rpx; */
+}
+
+.week-desc {
+  padding: 10rpx 40rpx;
+  height: 500rpx;
+  overflow-y: auto;
+}
+
+.year-desc{
+  padding: 10rpx 40rpx;
+  height: 500rpx;
+  overflow-y: auto;
+}
+
+.summary {
+  margin: 20rpx 0;
+}
+
+.share {
+  display: flex;
+  justify-content: center;
+}
+
+.share-btn {
+  width: 200rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  background-color: none;
+  color: #f0f076;
+  font-size: 30rpx;
+  padding: 0 7rpx;
+}
+
+.font-color {
+  color: white;
+}

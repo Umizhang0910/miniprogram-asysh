@@ -1,0 +1,159 @@
+<!--pages/more/xingzuo/starsign-detail/starsign-detail.wxml-->
+<view>
+  <view class="list">
+    <swiper indicator-dots="{{false}}" autoplay="{{false}}" previous-margin="{{'200rpx'}}" next-margin="{{'200rpx'}}" current="{{swiperIndex}}" bindchange="swiperChange">
+      <block wx:for="{{starSigns}}" wx:for-item="item" wx:key="{{index}}">
+        <swiper-item>
+          <image src="http://pxuyyeits.bkt.clouddn.com/image/scroll-img/{{item.xzImgName}}.jpg" class="slide-image {{swiperIndex == index ? 'active' : ''}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="date-list">
+    <block wx:for="{{dates}}" wx:for-item="item" wx:key="{{index}}">
+      <view class="date {{selected==item.code ? 'selected':''}}" data-code="{{item.code}}" catchtap="onDateTap">
+        <text class="title font-color">{{item.date}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="constellation" wx:if="{{selected == 'today' || selected == 'tomorrow'}}">
+    <view class="stars-container">
+      <text class="stars-title font-color">今日综合指数</text>
+      <view class="stars">
+        <block wx:for="{{constellation.all}}" wx:for-item="i" wx:key="index">
+          <image wx:if="{{i}}" src="/images/img/movie/star.png"></image>
+          <image wx:else src="/images/img/movie/none-star.png"></image>
+        </block>
+      </view>
+      <view class="date-time">
+        <text class="font-color">{{constellation.datetime}}</text>
+      </view>
+    </view>
+    <view class="stars-container">
+      <text class="stars-title font-color">爱情指数</text>
+      <view class="stars">
+        <block wx:for="{{constellation.love}}" wx:for-item="i" wx:key="index">
+          <image wx:if="{{i}}" src="/images/img/movie/star.png"></image>
+          <image wx:else src="/images/img/movie/none-star.png"></image>
+        </block>
+      </view>
+      <view class="other-pro">
+        <text class="font-color">星座  {{constellation.name}}</text>
+      </view>
+    </view>
+    <view class="stars-container">
+      <text class="stars-title font-color">事业指数</text>
+      <view class="stars">
+        <block wx:for="{{constellation.work}}" wx:for-item="i" wx:key="index">
+          <image wx:if="{{i}}" src="/images/img/movie/star.png"></image>
+          <image wx:else src="/images/img/movie/none-star.png"></image>
+        </block>
+      </view>
+      <view class="other-pro">
+        <text class="font-color">速配星座  {{constellation.QFriend}}</text>
+      </view>
+    </view>
+    <view class="stars-container">
+      <text class="stars-title font-color">财运指数</text>
+      <view class="stars">
+        <block wx:for="{{constellation.money}}" wx:for-item="i" wx:key="index">
+          <image wx:if="{{i}}" src="/images/img/movie/star.png"></image>
+          <image wx:else src="/images/img/movie/none-star.png"></image>
+        </block>
+      </view>
+      <view class="other-pro">
+        <text class="font-color">幸运数字  {{constellation.number}}</text>
+      </view>
+    </view>
+    <view class="stars-container" style="border-bottom:1rpx solid white;">
+      <text class="stars-title font-color">健康指数</text>
+      <view class="stars">
+        <block wx:for="{{constellation.health}}" wx:for-item="i" wx:key="index">
+          <image wx:if="{{i}}" src="/images/img/movie/star.png"></image>
+          <image wx:else src="/images/img/movie/none-star.png"></image>
+        </block>
+      </view>
+      <view class="other-pro">
+        <text class="font-color">幸运色  {{constellation.color}}</text>
+      </view>
+    </view>
+    <view class="desc">
+      <text class="font-color">{{constellation.summary}}</text>
+    </view>
+  </view>
+  <view class="constellation" wx:elif="{{selected == 'week'}}">
+    <view class="stars-container" style="border-bottom:1rpx solid white;">
+      <text class="stars-title font-color">星座  {{constellation.name}}</text>
+      <text class="font-color" style="padding: 0 50rpx;">{{constellation.date}}</text>
+      <text class="font-color">第{{constellation.weekth}}周</text>
+    </view>
+    <view class="week-desc">
+      <view class="summary">
+        <text class="font-color">{{constellation.love}}</text>
+      </view>
+      <view class="summary">
+        <text class="font-color">{{constellation.health}}</text>
+      </view>
+      <view class="summary">
+        <text class="font-color">{{constellation.money}}</text>
+      </view>
+      <view class="summary">
+        <text class="font-color">{{constellation.job}}</text>
+      </view>
+      <view class="summary">
+        <text class="font-color">{{constellation.work}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="constellation" wx:elif="{{selected == 'month'}}">
+    <view class="stars-container" style="border-bottom:1rpx solid white;">
+      <text class="stars-title font-color">星座  {{constellation.name}}</text>
+      <text class="font-color" style="padding: 0 180rpx 0 140rpx;">{{constellation.date}}</text>
+      <text class="font-color">月份：{{constellation.month}}</text>
+    </view>
+    <view class="week-desc">
+      <view class="summary">
+        <text class="font-color">{{constellation.happyMagic}}</text>
+        <text class="font-color"><text style="color:#f0f076;font-weight: bold;">综合运势：</text>{{constellation.all}}</text>
+      </view>
+      <view class="summary">
+        <text class="font-color"><text style="color:#f0f076;font-weight: bold;">爱情运势：</text>{{constellation.love}}</text>
+      </view>
+      <view class="summary">
+        <text class="font-color"><text style="color:#f0f076;font-weight: bold;">健康运势：</text>{{constellation.health}}</text>
+      </view>
+      <view class="summary">
+        <text class="font-color"><text style="color:#f0f076;font-weight: bold;">财运运势：</text>{{constellation.money}}</text>
+      </view>
+      <view class="summary">
+        <text class="font-color"><text style="color:#f0f076;font-weight: bold;">工作运势：</text>{{constellation.work}}</text>
+      </view>
+    </view>
+
+  </view>
+  <view class="constellation" wx:elif="{{selected == 'year'}}">
+    <view class="stars-container" style="border-bottom:1rpx solid white;">
+      <text class="stars-title font-color">星座  {{constellation.name}}</text>
+      <text class="font-color" style="padding: 0 190rpx 0 150rpx;">{{constellation.date}}</text>
+      <text class="font-color">年份：{{constellation.year}}</text>
+    </view>
+    <view class="year-desc">
+      <text class="font-color"><text style="color:#f0f076;font-weight: bold;">年度密码</text></text>
+      <view class="summary">
+        <text class="font-color">概述：{{constellation.mima.info}}</text>
+      </view>
+      <view class="summary">
+        <text class="font-color">说明：{{constellation.mima.text}}</text>
+      </view>
+      <view class="summary">
+        <text class="font-color"><text style="color:#f0f076;font-weight: bold;">事业运：</text>{{constellation.career}}</text>
+      </view>
+      <view class="summary">
+        <text class="font-color"><text style="color:#f0f076;font-weight: bold;">感情运：</text>{{constellation.love}}</text>
+      </view>
+      <view class="summary">
+        <text class="font-color"><text style="color:#f0f076;font-weight: bold;">财运运势：</text>{{constellation.finance}}</text>
+      </view>
+    </view>
+  </view>
+</view>

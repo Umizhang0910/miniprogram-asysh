@@ -1,0 +1,78 @@
+{
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/index/index",
+    "pages/movies/movies",
+    "pages/logs/logs",
+    "pages/city/city",
+    "pages/weather/weather",
+    "pages/news/news",
+    "pages/find/find",
+    "pages/movies/movie-detail/movie-detail",
+    "pages/movies/more-movie/more-movie",
+    "pages/more/more",
+    "pages/more/xingzuo/xingzuo",
+    "pages/more/youbian/youbian",
+    "pages/more/zidian/zidian",
+    "pages/more/xingzuo/starsign-detail/starsign-detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#eeeeee",
+    "navigationBarBackgroundColor": "#2af144",
+    "navigationBarTitleText": "艾尙源生活",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "backgroundColor": "#2af144",
+    "color": "#DCEDC8",
+    "selectedColor": "#DCEDC8",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index_s.png"
+      },
+      {
+        "pagePath": "pages/news/news",
+        "text": "新闻",
+        "iconPath": "images/news.png",
+        "selectedIconPath": "images/news_s.png"
+      },
+      {
+        "pagePath": "pages/movies/movies",
+        "text": "电影",
+        "iconPath": "images/movie.png",
+        "selectedIconPath": "images/movie_s.png"
+      },
+      {
+        "pagePath": "pages/more/more",
+        "text": "发现",
+        "iconPath": "images/find.png",
+        "selectedIconPath": "images/find_s.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 80000,
+    "connectSocket": 80000,
+    "uploadFile": 100000,
+    "downloadFile": 100000
+  },
+  "debug": true,
+  "functionalPages": true,
+  "requiredBackgroundModes": [
+    "audio",
+    "location"
+  ],
+  "resizable": true,
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

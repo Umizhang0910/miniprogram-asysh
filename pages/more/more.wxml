@@ -1,0 +1,7 @@
+<!--pages/more/more.wxml-->
+<import src="more-tool/more-tool-template.wxml" />
+
+<view class="more-container">
+  <template is="toolTemplate" data="{{tools: tools}}" />
+  <view class="more-tip">更多，敬请期待！</view>
+</view>

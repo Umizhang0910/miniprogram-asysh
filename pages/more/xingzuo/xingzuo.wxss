@@ -1,0 +1,76 @@
+/* pages/more/xingzuo/xingzuo.wxss */
+
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: -webkit-linear-gradient(top, white, lightgreen, #2af144);
+}
+
+.xz-warp {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.title-style {
+  margin-top: 20rpx;
+  font-size: 36rpx;
+  font-family: cursive;
+  font-weight: bold;
+  background: linear-gradient(to right, #4a8aff, #2af144);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.xz-container {
+  height: 860rpx;
+  margin: 20rpx 0;
+}
+
+.xz-self {
+  display: inline-flex;
+  flex-direction: column;
+  margin: 20rpx;
+  box-shadow: 0 6rpx 10rpx 2rpx white; /* for Android */
+  -webkit-box-shadow: 0px 3px 5px 1px white; /* for IOS */
+}
+
+.xz-img {
+  width: 200rpx;
+  height: 150rpx;
+  margin-bottom: 15rpx;
+  border-radius: 5%;
+  }
+
+.xz-title {
+  font-size: 24rpx;
+  font-family: cursive;
+  font-weight: bold;
+  background: linear-gradient(to right, #ec82ec, #4a8aff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 5rpx;
+  
+}
+
+.title-menu {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.title-img {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 20rpx 0 0 10rpx;
+}
+
+.title-text {
+  font-size: 28rpx;
+}

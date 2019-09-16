@@ -1,0 +1,11 @@
+<!--pages/welcome/welcome.wxml-->
+<view class="warp">
+  <image class="welcome-img" src="../../images/smile.png"/>
+  <view class="content">
+  <text class="welcome-txt">{{dateTime}}</text>
+  <text class="welcome-txt">{{userInfo.nickName}} {{dayTime}}</text>
+  <text class="welcome-txt">遇见你真好！</text>
+  </view>
+</view>
+
+

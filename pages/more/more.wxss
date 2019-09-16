@@ -1,0 +1,13 @@
+/* pages/more/more.wxss */
+@import "more-tool/more-tool-template.wxss";
+
+.more-container {
+  background-color: #fff;
+}
+
+.more-tip {
+  text-align: center;
+  font-size: 28rpx;
+  color: #ccc;
+  margin-top: 80rpx;
+}
