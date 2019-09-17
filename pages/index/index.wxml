@@ -1,25 +1,13 @@
 <!--index.wxml-->
-<!-- <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view> 
-</view> -->
 <import src="../movies/movie-list/movie-list-template.wxml" />
 <import src="../movies/movie-grid/movie-grid-template.wxml" />
 
 <view class="customSwiper">
-  <swiper class="banner" autoplay="true" circular="true" interval="5000" duration="300" bindchange="switchTab">
-    <!-- indicator-dots="true" 面板指示点 -->
+  <!-- indicator-dots="true" 面板指示点 -->
+  <swiper class="banner" indicator-dots="true" autoplay="true" circular="true" interval="5000" duration="300" bindchange="switchTab">
     <block wx:for="{{sliderList}}" wx:key="key">
       <swiper-item>
-        <image style="width:100%;height:100%;" src="{{item.imageSource}}"></image>
+        <image style="width:100%;height:100%;" src="http://pxuyyeits.bkt.clouddn.com/image/index/{{item.imageSource}}"></image>
       </swiper-item>
     </block>
   </swiper>
@@ -35,7 +23,7 @@
   <view class="hotcityCommon" style="display:inline;">当前位置: </view>
   <view class="thisCityName">{{location}}{{county}}</view>
   <view class="thisCityName" bindtap="jump">
-    <icon type="download" size="18" color="#2a579a" class="changeCity"></icon>
+    <icon type="download" size="18" color="#638639" class="changeCity"></icon>
     <text>更改定位</text>
   </view>
   <view class="container" wx:if="{{containerShow}}">

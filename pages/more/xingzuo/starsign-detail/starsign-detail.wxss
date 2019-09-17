@@ -5,7 +5,7 @@ page {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background: -webkit-linear-gradient(top, white, #2af144);
+  background: -webkit-linear-gradient(top, white, #638639);
 }
 
 .list {

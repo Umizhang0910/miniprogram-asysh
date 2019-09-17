@@ -91,7 +91,7 @@ input {
 
 .hotcity-common {
   font-size: 24rpx;
-  color: #ee4233;
+  color: #f75a11;
   padding-bottom: 0;
   margin: 8rpx 0;
   margin-left: 16rpx;
@@ -101,7 +101,7 @@ input {
   width: 150rpx;
   margin: 0;
   padding: 10rpx;
-  border: 1rpx solid #2a579a;
+  border: 1rpx solid #638639;
   border-radius: 8rpx;
 }
 
@@ -112,27 +112,27 @@ input {
 
 .thisCityName {
   display: inline-block;
-  border: 1rpx solid #2a579a;
+  border: 1rpx solid #638639;
   border-radius: 8rpx;
   padding: 10rpx 10rpx;
   font-size: 24rpx;
-  color: #2a579a;
+  color: #638639;
   text-align: center;
   min-width: 149.5rpx;
   margin: 16rpx 0;
 }
 
 .thishotText {
-  color: #2a579a;
+  color: #638639;
   font-size: 25rpx;
 }
 
 .slectCity {
-  border-color: #2a579a !important;
+  border-color: #638639 !important;
 }
 
 .slectCity view {
-  color: #2a579a !important;
+  color: #638639 !important;
 }
 
 .weui-grid {

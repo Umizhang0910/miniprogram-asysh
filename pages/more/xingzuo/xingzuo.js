@@ -81,8 +81,7 @@ Page({
         xzMonth: '(2.19-3.20)',
         xzImgName: 'Pisces'
       }
-    ],
-    qiniuyunUrl: ''
+    ]
   },
 
   /** 进入详情 */
@@ -119,37 +118,7 @@ Page({
    */
   onLoad: function(options) {
     var that = this;
-    that.setData({
-      qiniuyunUrl: app.globalData.qiniuyunBase
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
+    
   },
 
   /**
@@ -172,7 +141,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '星座运势~',
-      desc: '分享个小程序，希望你喜欢~',
+      desc: '分享个小程序，希望你喜欢😁~',
       success: function (res) {
         wx.showToast({
           title: "分享成功",

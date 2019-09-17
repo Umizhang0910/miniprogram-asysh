@@ -38,7 +38,7 @@
 
       <view class="selectCity">
         <view class="hotcity-common reset" bindtap="reGetLocation">
-          <icon type="warn" class="search-img" size="13"/>
+          <icon type="warn" color="#f75a11" class="search-img" size="13"/>
           重新定位
         </view>
         <view class="thisCityName" data-city="{{city}}" data-code="{{currentCityCode}}">{{city}}{{county}}</view>

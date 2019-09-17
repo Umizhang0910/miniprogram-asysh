@@ -5,7 +5,7 @@ page {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background: -webkit-linear-gradient(top, white, lightgreen, #2af144);
+  background: -webkit-linear-gradient(top, white, #638639);
 }
 
 .xz-warp {
@@ -19,7 +19,7 @@ page {
   font-size: 36rpx;
   font-family: cursive;
   font-weight: bold;
-  background: linear-gradient(to right, #4a8aff, #2af144);
+  background: linear-gradient(to right, #0b5ef8, #638639);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -49,7 +49,7 @@ page {
   font-size: 24rpx;
   font-family: cursive;
   font-weight: bold;
-  background: linear-gradient(to right, #ec82ec, #4a8aff);
+  background: linear-gradient(to right, #f536f5, #0b5ef8);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

@@ -9,16 +9,20 @@ Page({
     county: '', // 区县
     sliderList: [{
         selected: true,
-      imageSource: '../../images/img/index/01.png'
+        imageSource: '04.jpg'
       },
       {
         selected: false,
-        imageSource: '../../images/img/index/02.png'
+        imageSource: '01.png'
       },
       {
         selected: false,
-        imageSource: '../../images/img/index/03.png'
+        imageSource: '02.png'
       },
+      {
+        selected: false,
+        imageSource: '03.png'
+      }
     ],
     today: "",
     inTheaters: {},
@@ -40,22 +44,38 @@ Page({
     // 定位当前城市
     this.getLocation();
   },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+    return {
+      title: 'a 尙源生活',
+      desc: '分享个小程序，希望你喜欢😁~',
+      success: function(res) {
+        // 转发成功
+        wx.showToast({
+          title: "分享成功",
+          duration: 1000,
+          icon: "success"
+        })
+      }
+    }
+  },
 
   // 引入了电影模板，绑定了点击方法，这里写跳转方法即可
   // 点击电影，进入详情页面
-  onMovieTap: function (event) {
+  onMovieTap: function(event) {
     var movieId = event.currentTarget.dataset.movieid;
     wx.navigateTo({
       url: "../movies/movie-detail/movie-detail?id=" + movieId
     })
   },
   // 点击更多电影，跳转页面
-  onMoreTap: function (event) {
+  onMoreTap: function(event) {
     wx.switchTab({
       url: '../movies/movies'
     });
   },
-
   // 轮播图绑定change事件，修改图标的属性是否被选中
   switchTab: function(e) {
     var sliderList = this.data.sliderList;
@@ -92,7 +112,7 @@ Page({
         const longitude = res.longitude;
         // 获取城市
         wx.request({
-          url: 'https://apis.map.qq.com/ws/geocoder/v1',
+          url: app.globalData.tencentMapBase + '/ws/geocoder/v1',
           data: {
             "location": latitude + "," + longitude,
             "key": app.globalData.tencentMapKey
@@ -169,7 +189,7 @@ Page({
     })
   },
   // 调用豆瓣获取热映电影的api
-  getMovieListData: function (url, settedKey) {
+  getMovieListData: function(url, settedKey) {
     wx.showNavigationBarLoading()
     var that = this;
     wx.request({
@@ -178,7 +198,7 @@ Page({
       header: {
         "Content-Type": "json"
       },
-      success: function (res) {
+      success: function(res) {
         if (res.data.code != undefined || res.data.code != null) {
           wx.showToast({
             title: "获取影片数据失败！",
@@ -190,13 +210,13 @@ Page({
           that.processDoubanData(res.data, settedKey)
         }
       },
-      fail: function (error) {
+      fail: function(error) {
         console.log(error)
       }
     })
   },
   // 获得电影数据后的加工处理方法
-  processDoubanData: function (moviesDouban, settedKey) {
+  processDoubanData: function(moviesDouban, settedKey) {
     var movies = [];
     for (var i in moviesDouban.subjects) {
       // 一部电影信息
@@ -223,21 +243,5 @@ Page({
     }
     this.setData(readyData);
     wx.hideNavigationBarLoading();
-  },
-  // 用户点击右上角分享
-  onShareAppMessage: function() {
-    return {
-      title: 'a 尙源生活',
-      desc: '分享个小程序，希望你喜欢😁~',
-      success: function(res) {
-        // 转发成功
-        wx.showToast({
-          title: "分享成功",
-          duration: 1000,
-          icon: "success"
-        })
-      }
-    }
   }
-  
 })

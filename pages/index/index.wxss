@@ -40,7 +40,7 @@
   height: 7orpx;
   width: 100%;
   position: absolute;
-  bottom: 0;
+  bottom: 10rpx;
   display: flex;
   text-align: center;
   align-items: center;
@@ -49,17 +49,17 @@
 
 .tab .tab-item {
   background-color: #ccc;
-  height: 50rpx;
-  width: 50rpx;
-  line-height: 50rpx;
-  font-size: 12rpx;
+  height: 35rpx;
+  width: 35rpx;
+  line-height: 35rpx;
+  font-size: 20rpx;
   color: #fff;
-  border-radius: 4px;
-  margin-right: 10px;
+  border-radius: 10px;
+  margin-right: 5px;
 }
 
 .tab .tab-item.selected {
-  background-color: #2a579a;
+  background-color: #638639;
 }
 
 .index {
@@ -87,11 +87,11 @@
 
 .thisCityName {
   display: inline-block;
-  border: 1rpx solid #2a579a;
+  border: 1rpx solid #638639;
   border-radius: 8rpx;
   padding: 10rpx 10rpx;
   font-size: 30rpx;
-  color: #2a579a;
+  color: #638639;
   text-align: center;
   min-width: 149.5rpx;
   margin: 16rpx;
@@ -128,7 +128,7 @@
 
 .city {
   margin: 20rpx;
-  border-bottom: 1px solid #2a579a;
+  border-bottom: 1px solid #638639;
 }
 
 /*当天温度*/
@@ -138,7 +138,7 @@
   line-height: 130rpx;
   text-align: center;
   padding-top: 20rpx;
-  color: #2a579a;
+  color: #638639;
 }
 
 /*温度描述*/

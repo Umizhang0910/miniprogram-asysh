@@ -19,13 +19,13 @@
   "window": {
     "backgroundTextStyle": "dark",
     "backgroundColor": "#eeeeee",
-    "navigationBarBackgroundColor": "#2af144",
-    "navigationBarTitleText": "艾尙源生活",
+    "navigationBarBackgroundColor": "#638639",
+    "navigationBarTitleText": "a 尙源生活",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "position": "bottom",
-    "backgroundColor": "#2af144",
+    "backgroundColor": "#638639",
     "color": "#DCEDC8",
     "selectedColor": "#DCEDC8",
     "list": [

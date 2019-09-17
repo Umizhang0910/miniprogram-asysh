@@ -63,15 +63,18 @@ App({
     day: '',
     g_isPlayingMusic: false,
     g_currentMusicPostId: null,
+    curBook: "",
     doubanBase: "https://douban.uieee.com",
-    heWeatherBase: "https://free-api.heweather.com",
-    juhetoutiaoBase: "https://v.juhe.cn/toutiao/index",
-    juhexingzuoBase: "http://web.juhe.cn:8080",
-    qiniuyunBase: "http://pxuyyeits.bkt.clouddn.com",
+    tencentMapBase: "https://apis.map.qq.com",
     tencentMapKey: "4HYBZ-EB23D-SLC42-HQ5R3-LP3LQ-OZFU5",
+    heWeatherBase: "https://free-api.heweather.com",
     heWeatherKey: "4a817b4338e04cc59bdb92da7771411e",
+    juhetoutiaoBase: "https://v.juhe.cn/toutiao/index",
     juhetoutiaoKey: "a9f703a0200d68926f707f3f13629078",
-    juhexingzuoKey: "6ac9204cc6613922a445bae75769d5db",
-    curBook: ""
+    // juhexingzuoBase: "http://web.juhe.cn:8080",
+    // juhexingzuoKey: "6ac9204cc6613922a445bae75769d5db",
+    jisuBase: "https://api.jisuapi.com",
+    jisuappkey: "4dcd91e05013ea27",
+    jisuappsecret: "SZiv8qrwXyslbFbci7zdWU6EI4A4FNdK"
   }
 })

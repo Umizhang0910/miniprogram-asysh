@@ -11,62 +11,74 @@ Page({
     starSigns: [{
         starSignId: 'Aries',
         starSignName: '白羊座',
-        xzImgName: 'by'
+        xzImgName: 'by',
+        astroid: 1
       },
       {
         starSignId: 'Taurus',
         starSignName: '金牛座',
-        xzImgName: 'jn'
+        xzImgName: 'jn',
+        astroid: 2
       },
       {
         starSignId: 'Gemini',
         starSignName: '双子座',
-        xzImgName: 'szz'
+        xzImgName: 'szz',
+        astroid: 3
       },
       {
         starSignId: 'Cancer',
         starSignName: '巨蟹座',
-        xzImgName: 'jx'
+        xzImgName: 'jx',
+        astroid: 4
       },
       {
         starSignId: 'Leo',
         starSignName: '狮子座',
-        xzImgName: 'sz'
+        xzImgName: 'sz',
+        astroid: 5
       },
       {
         starSignId: 'Virgo',
         starSignName: '处女座',
-        xzImgName: 'cn'
+        xzImgName: 'cn',
+        astroid: 6
       },
       {
         starSignId: 'Libra',
         starSignName: '天秤座',
-        xzImgName: 'tp'
+        xzImgName: 'tp',
+        astroid: 7
       },
       {
         starSignId: 'Scorpio',
         starSignName: '天蝎座',
-        xzImgName: 'tx'
+        xzImgName: 'tx',
+        astroid: 8
       },
       {
         starSignId: 'Sagittarius',
         starSignName: '射手座',
-        xzImgName: 'ss'
+        xzImgName: 'ss',
+        astroid: 9
       },
       {
         starSignId: 'Capricorn',
         starSignName: '摩羯座',
-        xzImgName: 'mj'
+        xzImgName: 'mj',
+        astroid: 10
       },
       {
         starSignId: 'Aquarius',
         starSignName: '水瓶座',
-        xzImgName: 'sp'
+        xzImgName: 'sp',
+        astroid: 11
       },
       {
         starSignId: 'Pisces',
         starSignName: '双鱼座',
-        xzImgName: 'sy'
+        xzImgName: 'sy',
+        astroid: 12
       }
     ],
     swiperIndex: 0,
@@ -109,10 +121,10 @@ Page({
         });
       }
     }
-    var reqUrl = app.globalData.juhexingzuoBase + "/constellation/getAll?consName=" + that.data.starSigns[that.data.swiperIndex].starSignName + "&type=today&key=" + app.globalData.juhexingzuoKey;
+    var reqUrl = app.globalData.jisuBase + "/astro/fortune?astroid=" + that.data.starSigns[that.data.swiperIndex].astroid + "&appkey=" + app.globalData.jisuappkey;
     // 查询星座运势
     wx.showNavigationBarLoading();
-    that.getStarSignData(reqUrl, "today");
+    that.getStarSignData(reqUrl);
     that.setData({
       selected: "today"
     })
@@ -124,29 +136,27 @@ Page({
   /** 改变轮番 */
   swiperChange(e) {
     console.log(e);
-    this.setData({
-      swiperIndex: e.detail.current,
-      selected: "today"
-    })
-    var reqUrl = app.globalData.juhexingzuoBase + "/constellation/getAll?consName=" + this.data.starSigns[e.detail.current].starSignName + "&type=today&key=" + app.globalData.juhexingzuoKey;
-    // 查询星座运势
-    wx.showNavigationBarLoading();
-    this.getStarSignData(reqUrl, "today");
+    if (this.data.swiperIndex != e.detail.current) {
+      this.setData({
+        swiperIndex: e.detail.current,
+        selected: "today"
+      })
+      var reqUrl = app.globalData.jisuBase + "/astro/fortune?astroid=" + this.data.starSigns[e.detail.current].astroid + "&appkey=" + app.globalData.jisuappkey;
+      // 查询星座运势
+      wx.showNavigationBarLoading();
+      this.getStarSignData(reqUrl);
 
-    wx.setNavigationBarTitle({
-      title: "今日运势"
-    })
+      wx.setNavigationBarTitle({
+        title: "今日运势"
+      })
+    }
   },
 
   /** 选择日期 */
   onDateTap: function(e) {
-    wx.showNavigationBarLoading();
     var that = this;
     var code = e.currentTarget.dataset.code;
     var title = '';
-    var reqUrl = "http://web.juhe.cn:8080/constellation/getAll?consName=" + that.data.starSigns[that.data.swiperIndex].starSignName + "&type=" + code + "&key=6ac9204cc6613922a445bae75769d5db";
-    // 查询星座运势
-    that.getStarSignData(reqUrl, code);
     switch (code) {
       case "today":
         title = "今日运势";
@@ -173,10 +183,10 @@ Page({
 
   },
 
-/**
- * 获取星座数据
- */
-  getStarSignData: function(url, type) {
+  /**
+   * 获取星座数据
+   */
+  getStarSignData: function(url) {
     var that = this;
     wx.request({
       url: url,
@@ -185,8 +195,7 @@ Page({
         "Content-Type": "json"
       },
       success: function(res) {
-        console.log(res);
-        that.processData(res.data, type);
+        that.processData(res.data);
       },
       fail: function(error) {
         console.log(error)
@@ -197,16 +206,24 @@ Page({
   /**
    * 运势数据的封装
    */
-  processData: function(data, type) {
+  processData: function(data) {
     var constellation = {};
-    constellation = data;
-    if (type == 'today') {
-      // 数据
-      constellation.all = this.convertToArray(data.all);
-      constellation.health = this.convertToArray(data.health);
-      constellation.love = this.convertToArray(data.love);
-      constellation.money = this.convertToArray(data.money);
-      constellation.work = this.convertToArray(data.work);
+    if (data.status == 0) {
+      constellation = data.result;
+      // 数据转换 今日
+      constellation.today.summary = this.convertToArray(constellation.today.summary);
+      constellation.today.health = this.convertToArray(constellation.today.health);
+      constellation.today.love = this.convertToArray(constellation.today.love);
+      constellation.today.money = this.convertToArray(constellation.today.money);
+      constellation.today.career = this.convertToArray(constellation.today.career);
+      // 数据转换 明日
+      constellation.tomorrow.summary = this.convertToArray(constellation.tomorrow.summary);
+      constellation.tomorrow.health = this.convertToArray(constellation.tomorrow.health);
+      constellation.tomorrow.love = this.convertToArray(constellation.tomorrow.love);
+      constellation.tomorrow.money = this.convertToArray(constellation.tomorrow.money);
+      constellation.tomorrow.career = this.convertToArray(constellation.tomorrow.career);
+    } else {
+      console.log(data);
     }
 
     this.setData({
@@ -222,7 +239,7 @@ Page({
     var num = parseFloat(score);
     var array = [];
     for (var i = 1; i <= 5; i++) {
-      if ((i * 20) <= num) {
+      if (i <= num) {
         array.push(1);
       } else {
         array.push(0);
