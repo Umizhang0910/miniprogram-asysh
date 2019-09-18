@@ -20,18 +20,32 @@
 </view>
 <view class="index">
   <!--<text>点击地名以更换城市</text>-->
-  <view class="hotcityCommon" style="display:inline;">当前位置: </view>
-  <view class="thisCityName">{{location}}{{county}}</view>
-  <view class="thisCityName" bindtap="jump">
-    <icon type="download" size="18" color="#638639" class="changeCity"></icon>
-    <text>更改定位</text>
-  </view>
-  <view class="container" wx:if="{{containerShow}}">
-    <view class="movies-template">
-      <template is="movieListTemplate" data="{{...inTheaters}}" />
+  <view class="navigateTitle">城市位置</view>
+  <view class="bgwrap">
+    <view class="hotcityCommon" style="display:inline;">当前位置: </view>
+    <view class="locationContent">
+      <block wx:if="{{location == '上海市'}}">
+        <image class="locationLogo" src="../../images/img/index/shanghai.png"></image>
+      </block>
+      <block wx:if="{{location == '北京市'}}">
+        <image class="locationLogo" src="../../images/img/index/beijing.png"></image>
+      </block>
+      <block wx:if="{{location != '北京市' && location != '上海市'}}">
+        <image class="locationLogo" src="../../images/img/index/location.png"></image>
+      </block>
+      <view class="locationDesc">
+        <view class="thisCityName" style="border:none;font-size:50rpx;"><image src="../../images/img/index/position.png"></image>{{location}}{{county}}</view>
+        <view class="thisCityName" bindtap="jump">
+          <icon type="download" size="18" color="#638639" class="changeCity"></icon>
+          <text>更改定位</text>
+        </view>
+      </view>
     </view>
   </view>
-  <view class="weatherwrap" bindtap='gotoWeather'>
+  <view class="navigateTitle">时间日历</view>
+  <calendar></calendar>
+  <view class="navigateTitle">天气信息</view>
+  <view class="bgwrap" bindtap='gotoWeather'>
     <!--显示当天的天气信息-->
     <view class="info">
       <!--城市名称 当前日期-->
@@ -47,6 +61,13 @@
         <view>{{air.qlty}}</view>
       </view>
       <view class="life" style='text-indent:1em;'>{{dress.txt}}</view>
+    </view>
+  </view>
+  <!--显示电影信息-->
+  <view class="navigateTitle">电影资讯</view>
+  <view class="container" wx:if="{{containerShow}}">
+    <view class="movies-template">
+      <template is="movieListTemplate" data="{{...inTheaters}}" />
     </view>
   </view>
 </view>
