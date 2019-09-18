@@ -3,10 +3,10 @@
   <text class="title-style">12星座运势大全</text>
   <view class="xz-container">
       <block wx:for="{{starSigns}}" wx:for-item="star" wx:key="{{key}}">
-        <view class="xz-self" catchtap="onStarSignTap" data-starsignid="{{star.starSignId}}">
-          <image class="xz-img" src="http://pxuyyeits.bkt.clouddn.com/{{star.xzImgName}}.jpg" data-src="http://pxuyyeits.bkt.clouddn.com/{{star.xzImgName}}.jpg" catchtap="viewStarSignImg"></image>
-          <text class="xz-title">{{star.starSignName}}</text>
-          <text class="xz-title">{{star.xzMonth}}</text>
+        <view class="xz-self" catchtap="onStarSignTap" data-starsignid="{{star.astroid}}">
+          <image class="xz-img" src="{{star.pic}}" data-src="{{star.pic}}" catchtap="viewStarSignImg"></image>
+          <text class="xz-title">{{star.astroname}}</text>
+          <text class="xz-title">{{star.date}}</text>
         </view>
       </block>
   </view>

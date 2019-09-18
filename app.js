@@ -73,8 +73,8 @@ App({
     // juhetoutiaoKey: "a9f703a0200d68926f707f3f13629078",
     // // juhexingzuoBase: "http://web.juhe.cn:8080",
     // // juhexingzuoKey: "6ac9204cc6613922a445bae75769d5db",
-    // jisuBase: "https://api.jisuapi.com",
-    // jisuappkey: "4dcd91e05013ea27",
-    // jisuappsecret: "SZiv8qrwXyslbFbci7zdWU6EI4A4FNdK"
+    jisuBase: "https://api.jisuapi.com",
+    jisuappkey: "4dcd91e05013ea27",
+    jisuappsecret: "SZiv8qrwXyslbFbci7zdWU6EI4A4FNdK"
   }
 })

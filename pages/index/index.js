@@ -6,23 +6,23 @@ const util = require("../../utils/util.js");
 Page({
   data: {
     // 此处为日历自定义配置字段
-    // calendarConfig: {
-    //   /**
-    //    * 初始化日历时指定默认选中日期，如：'2018-3-6' 或 '2018-03-06'
-    //    * 初始化时不默认选中当天，则将该值配置为false。
-    //    */
-    //   defaultDay: false,
-    //   multi: true, // 是否开启多选,
-    //   theme: 'default', // 日历主题，目前共两款可选择，默认 default 及 elegant，自定义主题在 theme 文件夹扩展
-    //   showLunar: true, // 是否显示农历，此配置会导致 setTodoLabels 中 showLabelAlways 配置失效
-    //   inverse: true, // 单选模式下是否支持取消选中,
-    //   takeoverTap: false, // 是否完全接管日期点击事件（日期不会选中），配合 onTapDay() 使用
-    //   disablePastDay: true, // 是否禁选过去的日期
-    //   firstDayOfWeek: 'Mon', // 每周第一天为周一还是周日，默认按周日开始
-    //   onlyShowCurrentMonth: true, // 日历面板是否只显示本月日期
-    //   hideHeadOnWeekMode: false, // 周视图模式是否隐藏日历头部
-    //   showHandlerOnWeekMode: true // 周视图模式是否显示日历头部操作栏，hideHeadOnWeekMode 优先级高于此配置
-    // },
+    calendarConfig: {
+      /**
+       * 初始化日历时指定默认选中日期，如：'2018-3-6' 或 '2018-03-06'
+       * 初始化时不默认选中当天，则将该值配置为false。
+       */
+      defaultDay: true,
+      multi: true, // 是否开启多选,
+      theme: 'default', // 日历主题，目前共两款可选择，默认 default 及 elegant，自定义主题在 theme 文件夹扩展
+      showLunar: true, // 是否显示农历，此配置会导致 setTodoLabels 中 showLabelAlways 配置失效
+      inverse: true, // 单选模式下是否支持取消选中,
+      takeoverTap: false, // 是否完全接管日期点击事件（日期不会选中），配合 onTapDay() 使用
+      disablePastDay: true, // 是否禁选过去的日期
+      firstDayOfWeek: 'Mon', // 每周第一天为周一还是周日，默认按周日开始
+      onlyShowCurrentMonth: true, // 日历面板是否只显示本月日期
+      hideHeadOnWeekMode: false, // 周视图模式是否隐藏日历头部
+      showHandlerOnWeekMode: true // 周视图模式是否显示日历头部操作栏，hideHeadOnWeekMode 优先级高于此配置
+    },
     location: '', // 城市
     county: '', // 区县
     sliderList: [{
@@ -47,7 +47,11 @@ Page({
     containerShow: true,
     weatherData: '',
     air: '',
-    dress: ''
+    dress: '',
+    showDateSimple: true,
+    showDateDetail: false,
+    thisDate: util.formatDateTime(new Date()).split(' ')[0],
+    thisTime: util.formatDateTime(new Date()).split(' ')[1]
   },
 
   /**
@@ -80,6 +84,18 @@ Page({
     }
   },
 
+  gotoSimpleDate: function () {
+    this.setData({
+      showDateSimple: false,
+      showDateDetail: true,
+    })
+  },
+  gotoDetailDate: function () {
+    this.setData({
+      showDateSimple: true,
+      showDateDetail: false,
+    })
+  },
   // 引入了电影模板，绑定了点击方法，这里写跳转方法即可
   // 点击电影，进入详情页面
   onMovieTap: function(event) {

@@ -56,20 +56,21 @@
   background-color: #ff5252;
 }
 
-.locationContent{
+.locationContent {
   display: flex;
   flex-direction: row;
 }
 
-.locationDesc{
+.locationDesc {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  vertical-align: middle;
 }
 
-.locationLogo{
-  width: 160rpx;
-  height: 160rpx;
-  margin-left: 100rpx;
+.locationLogo {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 20rpx 60rpx 20rpx 20rpx;
 }
 
 .hotcityCommon {
@@ -80,16 +81,18 @@
   margin-left: 16rpx;
 }
 
+.thisIcon {
+  width: 80rpx;
+  height: 80rpx;
+}
+
 .thisCityName {
   display: inline-block;
-  border: 1rpx solid #638639;
-  border-radius: 8rpx;
   padding: 10rpx 10rpx;
   font-size: 30rpx;
   color: #638639;
   text-align: center;
   min-width: 149.5rpx;
-  margin: 16rpx;
 }
 
 .changeCity {
@@ -112,11 +115,9 @@
 }
 
 /*当天天气信息*/
-
 .info {
-  margin-top: 20rpx;
   width: 100%;
-  height: 225px;
+  height: 310rpx;
 }
 
 /*城市名称*/
@@ -129,28 +130,39 @@
 /*当天温度*/
 
 .temp {
-  font-size: 100rpx;
+  font-size: 90rpx;
   line-height: 130rpx;
   text-align: center;
-  padding-top: 20rpx;
+  padding-top: 5rpx;
   color: #638639;
+}
+
+.weatherContent {
+  display: flex;
+  flex-direction: column;
 }
 
 /*温度描述*/
 
 .weather {
   line-height: 22px;
-  margin: 20rpx;
   padding: 0 10px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+}
+
+.weather view {
+  margin-left: 15rpx;
 }
 
 .life {
   line-height: 22px;
   margin: 5px 0;
   padding: 0 5px;
+}
+
+.dateTime{
+  margin: 20rpx;
 }
 
 /* 导航标题样式 */

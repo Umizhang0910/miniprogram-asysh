@@ -112,10 +112,10 @@ Page({
    */
   onLoad: function(options) {
     var that = this;
-    var starSignId = options.id;
+    var astroid = options.id;
     // 遍历为swiperIndex赋值
     for (var i in that.data.starSigns) {
-      if (that.data.starSigns[i].starSignId == starSignId) {
+      if (that.data.starSigns[i].astroid == astroid) {
         that.setData({
           swiperIndex: i
         });

@@ -1,16 +1,13 @@
 <!-- 工具简介模板 -->
 <template name="toolTemplate">
   <block wx:for="{{tools}}" wx:for-item="tool" wx:key="index">
-    <view class="container">
+    <view class="container" catchtap="onUseTap" data-tool="{{tool.toolTitle}}">
       <view class="left">
         <view class="more-text">
           <image class="more-img" src="../../images/img/more/{{tool.toolIcon}}.png"></image>
           <text class="title">{{tool.toolTitle}}</text>
         </view>
         <text class="desc">简介：{{tool.toolDesc}}</text>
-      </view>
-      <view class="use" catchtap="onUseTap" data-tool="{{tool.toolTitle}}">
-        <image class="use-img" src="../../images/img/more/enter.png"></image>
       </view>
     </view>
   </block>
