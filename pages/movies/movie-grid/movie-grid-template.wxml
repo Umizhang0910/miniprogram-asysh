@@ -8,3 +8,21 @@
     </block>
   </view>
 </template>
+<template name="musicGridTemplate">
+  <view class="grid-container">
+    <block wx:for="{{musics}}" wx:for-item="music" wx:key="index">
+      <view class="single-view-container">
+        <template is="musicTemplate" data="{{...music}}" />
+      </view>
+    </block>
+  </view>
+</template>
+<template name="bookGridTemplate">
+  <view class="grid-container">
+    <block wx:for="{{books}}" wx:for-item="book" wx:key="index">
+      <view class="single-view-container">
+        <template is="bookTemplate" data="{{...book}}" />
+      </view>
+    </block>
+  </view>
+</template>

@@ -8,6 +8,7 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 }  */
+@import 'weui.wxss';
 
 /**app.wxss**/
 text{

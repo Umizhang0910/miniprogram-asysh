@@ -1,0 +1,2 @@
+/* pages/index/book/book.wxss */
+@import "../../movies/movie-grid/movie-grid-template.wxss";

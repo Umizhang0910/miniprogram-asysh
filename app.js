@@ -71,8 +71,8 @@ App({
     heWeatherKey: "4a817b4338e04cc59bdb92da7771411e",
     juhetoutiaoBase: "https://v.juhe.cn/toutiao/index",
     juhetoutiaoKey: "a9f703a0200d68926f707f3f13629078",
-    // // juhexingzuoBase: "http://web.juhe.cn:8080",
-    // // juhexingzuoKey: "6ac9204cc6613922a445bae75769d5db",
+    // juhexingzuoBase: "http://web.juhe.cn:8080",
+    // juhexingzuoKey: "6ac9204cc6613922a445bae75769d5db",
     jisuBase: "https://api.jisuapi.com",
     jisuappkey: "4dcd91e05013ea27",
     jisuappsecret: "SZiv8qrwXyslbFbci7zdWU6EI4A4FNdK"

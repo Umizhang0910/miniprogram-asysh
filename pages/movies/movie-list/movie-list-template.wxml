@@ -23,3 +23,43 @@
     </view>
   </view>
 </template>
+<template name="musicListTemplate">
+  <view class="movie-list-container">
+    <view class="inner-container">
+      <view class="movie-head">
+        <text class="slogan">{{categoryTitle}}  </text>
+        <view class="more" catchtap="onMoreMusicTap" data-category="{{categoryTitle}}">
+          <text class="more-text">更多</text>
+          <image class="more-img" src="/images/img/movie/arrow-right.png"></image>
+        </view>
+      </view>
+      <view class="movies-container">
+        <scroll-view scroll-x="true" style="width: 100%">
+          <block wx:for="{{musics}}" wx:for-item="music" wx:key="key">
+            <template is="musicTemplate" data="{{...music}}" />
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</template>
+<template name="bookListTemplate">
+  <view class="movie-list-container">
+    <view class="inner-container">
+      <view class="movie-head">
+        <text class="slogan">{{categoryTitle}}  </text>
+        <view class="more" catchtap="onMoreBookTap" data-category="{{categoryTitle}}">
+          <text class="more-text">更多</text>
+          <image class="more-img" src="/images/img/movie/arrow-right.png"></image>
+        </view>
+      </view>
+      <view class="movies-container">
+        <scroll-view scroll-x="true" style="width: 100%">
+          <block wx:for="{{books}}" wx:for-item="book" wx:key="key">
+            <template is="bookTemplate" data="{{...book}}" />
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</template>

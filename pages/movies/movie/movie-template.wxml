@@ -6,3 +6,19 @@
     <template is="starsTemplate" data="{{stars: stars, score: average}}" />
   </view>
 </template>
+<template name="musicTemplate">
+  <view class="movie-container" catchtap="onMusicTap" data-movieId="{{musicId}}">
+    <image class="movie-img" src="{{coverageUrl}}"></image>
+    <text class="movie-title">{{title}}</text>
+    <text class="movie-title">{{musicAuthor}}</text>
+    <template is="starsTemplate" data="{{stars: stars, score: average}}" />
+  </view>
+</template>
+<template name="bookTemplate">
+  <view class="movie-container" catchtap="onBookTap" data-movieId="{{bookId}}">
+    <image class="movie-img" src="{{coverageUrl}}"></image>
+    <text class="movie-title">{{title}}</text>
+    <text class="movie-title" space="ensp" decode="{{true}}">{{bookAuthor}}</text>
+    <template is="starsTemplate" data="{{stars: stars, score: average}}" />
+  </view>
+</template>

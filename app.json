@@ -14,7 +14,9 @@
     "pages/more/xingzuo/xingzuo",
     "pages/more/youbian/youbian",
     "pages/more/zidian/zidian",
-    "pages/more/xingzuo/starsign-detail/starsign-detail"
+    "pages/more/xingzuo/starsign-detail/starsign-detail",
+    "pages/index/book/book",
+    "pages/index/music/music"
   ],
   "window": {
     "backgroundTextStyle": "dark",

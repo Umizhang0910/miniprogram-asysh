@@ -51,7 +51,9 @@ Page({
     showDateSimple: true,
     showDateDetail: false,
     thisDate: util.formatDateTime(new Date()).split(' ')[0],
-    thisTime: util.formatDateTime(new Date()).split(' ')[1]
+    thisTime: util.formatDateTime(new Date()).split(' ')[1],
+    inMusics: {},
+    inBooks: {}
   },
 
   /**
@@ -65,6 +67,12 @@ Page({
     });
     // 定位当前城市
     this.getLocation();
+    // 获取音乐信息
+    var musicUrl = app.globalData.doubanBase + "/v2/music/search?tag=流行&count=20";
+    util.http(musicUrl, this.getMusicDataByDouban);
+    // 获取图书信息
+    var bookUrl = app.globalData.doubanBase + "/v2/book/search?tag=文学&count=20";
+    util.http(bookUrl, this.getBookDataByDouban);
   },
   /**
    * 用户点击右上角分享
@@ -84,13 +92,13 @@ Page({
     }
   },
 
-  gotoSimpleDate: function () {
+  gotoSimpleDate: function() {
     this.setData({
       showDateSimple: false,
       showDateDetail: true,
     })
   },
-  gotoDetailDate: function () {
+  gotoDetailDate: function() {
     this.setData({
       showDateSimple: true,
       showDateDetail: false,
@@ -109,6 +117,20 @@ Page({
     wx.switchTab({
       url: '../movies/movies'
     });
+  },
+  // 点击更多音乐，进入页面
+  onMoreMusicTap: function() {
+    var that = this;
+    wx.navigateTo({
+      url: 'music/music?movies'
+    })
+  },
+  // 点击更多读书，进入页面
+  onMoreBookTap: function() {
+    var that = this;
+    wx.navigateTo({
+      url: 'book/book?books'
+    })
   },
   // 轮播图绑定change事件，修改图标的属性是否被选中
   switchTab: function(e) {
@@ -251,6 +273,7 @@ Page({
   },
   // 获得电影数据后的加工处理方法
   processDoubanData: function(moviesDouban, settedKey) {
+    console.log(moviesDouban);
     var movies = [];
     for (var i in moviesDouban.subjects) {
       // 一部电影信息
@@ -277,5 +300,92 @@ Page({
     }
     this.setData(readyData);
     wx.hideNavigationBarLoading();
+  },
+
+  // 处理豆瓣音乐数据
+  getMusicDataByDouban: function(data) {
+    var musics = [];
+    for (var i in data.musics) {
+      var music = data.musics[i];
+      // 处理标题
+      var title = music.title;
+      if (title.length >= 6) {
+        title = title.substring(0, 6) + "...";
+      }
+      // 作者
+      var author = "";
+      for (var i in music.author) {
+        author = author + "/" + music.author[i].name;
+      }
+      author = author.substring(1);
+      if (author.length >= 9) {
+        author = author.substring(0, 9) + "...";
+      }
+      var temp = {
+        stars: this.convertToStarsArray(music.rating.average),
+        title: title,
+        average: music.rating.average,
+        coverageUrl: music.image,
+        musicId: music.id,
+        musicAuthor: author,
+      }
+      musics.push(temp);
+    }
+    var readyData = {};
+    readyData["inMusics"] = {
+      categoryTitle: "流行音乐",
+      musics: musics
+    }
+    this.setData(readyData);
+  },
+  // 处理豆瓣图书数据
+  getBookDataByDouban: function(data) {
+    var books = [];
+    for (var i in data.books) {
+      var book = data.books[i];
+      // 处理标题
+      var title = book.title;
+      if (title.length >= 6) {
+        title = title.substring(0, 6) + "...";
+      }
+      // 作者
+      var author = "";
+      for (var i in book.author) {
+        author = author + "/" + book.author[i];
+      }
+      author = author.substring(1);
+      if (author.length >= 9) {
+        author = author.substring(0, 9) + "...";
+      }
+      var temp = {
+        stars: this.convertToStarsArray(book.rating.average),
+        title: title,
+        average: book.rating.average,
+        coverageUrl: book.image,
+        bookId: book.id,
+        bookAuthor: author,
+      }
+      books.push(temp);
+    }
+    var readyData = {};
+    readyData["inBooks"] = {
+      categoryTitle: "畅读书籍",
+      books: books
+    }
+    this.setData(readyData);
+  },
+
+  // 转换星级数据
+  convertToStarsArray: function(score) {
+    var num = parseFloat(score);
+    var array = [];
+    for (var i = 1; i <= 5; i++) {
+      if (i*2 <= num) {
+        array.push(1);
+      } else {
+        array.push(0);
+      }
+    }
+    return array;
   }
 })

@@ -99,4 +99,25 @@
       <template is="movieListTemplate" data="{{...inTheaters}}" />
     </view>
   </view>
+  <!--显示音乐信息-->
+  <view class="navigateTitle">音乐资讯</view>
+  <view class="container" wx:if="{{containerShow}}">
+    <view class="movies-template">
+      <template is="musicListTemplate" data="{{...inMusics}}" />
+    </view>
+  </view>
+  <!--显示图书信息-->
+  <view class="navigateTitle">读书资讯</view>
+  <view class="container" wx:if="{{containerShow}}">
+    <view class="movies-template">
+      <template is="bookListTemplate" data="{{...inBooks}}" />
+    </view>
+  </view>
+  <!-- 反馈与支持 -->
+  <view class="bgwrap">
+    <view class="locationContent">
+    <button size="mini" type="default" open-type="feedback" plain="true" class="bottomBtn">意见反馈</button>
+    <button size="mini" type="default" plain="true" class="bottomBtn">赞赏支持</button>
+    </view>
+  </view>
 </view>
