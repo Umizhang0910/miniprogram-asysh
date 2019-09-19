@@ -23,6 +23,31 @@ Page({
       hideHeadOnWeekMode: false, // 周视图模式是否隐藏日历头部
       showHandlerOnWeekMode: true // 周视图模式是否显示日历头部操作栏，hideHeadOnWeekMode 优先级高于此配置
     },
+    menulist: [{
+        "id": "1",
+        "url": "../../images/img/index/top.png",
+        "title": "回顶部",
+      },
+      {
+        "id": "2",
+        "url": "../../images/img/index/share.png",
+        "title": "分享",
+      },
+      {
+        "id": "3",
+        "url": "../../images/img/index/feedback.png",
+        "title": "意见反馈",
+      },
+      {
+        "id": "3",
+        "url": "../../images/img/index/support.png",
+        "title": "赞赏支持",
+      },
+    ],
+    mainmodel: {
+      "url": "../../images/img/index/open.png",
+      // "title": "菜单",
+    },
     location: '', // 城市
     county: '', // 区县
     sliderList: [{
@@ -380,12 +405,24 @@ Page({
     var num = parseFloat(score);
     var array = [];
     for (var i = 1; i <= 5; i++) {
-      if (i*2 <= num) {
+      if (i * 2 <= num) {
         array.push(1);
       } else {
         array.push(0);
       }
     }
     return array;
+  },
+
+  menuItemClick: function(res) {
+    console.log("000");
+    console.log(res);
+    //获取点击事件的信息
+    let clickInfo = res.detail.iteminfo
+    console.log("111");
+    console.log(clickInfo);
+    // 根据不同类型进行判别处理
+    //事件的处理 代码
+    
   }
 })

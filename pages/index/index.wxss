@@ -145,8 +145,6 @@
 /*温度描述*/
 
 .weather {
-  line-height: 22px;
-  padding: 0 10px;
   display: flex;
   flex-direction: row;
 }
@@ -190,16 +188,8 @@
 .locationContent {
   display: flex;
   flex-direction: row;
-  margin: 40rpx 20rpx;
+  margin: 20rpx;
 }
 
-.bottomBtn{
-  width: 200rpx;
-  height: 80rpx;
-  
-}
 
-button::after {
-  border: none;
-  font-size: 24rpx;
-}
+

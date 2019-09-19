@@ -25,10 +25,6 @@
   <view class="bgwrap">
     <view class="locationContent">
       <view class="hotcityCommon" style="display:inline;">当前位置: </view>
-      <view class="thisCityName" bindtap="jump">
-        <icon type="download" size="14" color="#638639" class="changeCity"></icon>
-        <text>更改定位</text>
-      </view>
     </view>
     <view class="locationContent">
       <block wx:if="{{location == '上海市'}}">
@@ -43,6 +39,10 @@
       <view class="locationDesc">
         <view class="thisCityName" style="font-size:50rpx;">{{location}}{{county}}</view>
         <image class="thisIcon" src="../../images/img/index/position.png"></image>
+        <view class="thisCityName" bindtap="jump">
+        <icon type="download" size="14" color="#638639" class="changeCity"></icon>
+        <text>更改定位</text>
+      </view>
       </view>
     </view>
   </view>
@@ -58,10 +58,10 @@
         <view class="weatherContent">
           <view class="temp">{{weatherData.tmp}}℃</view>
           <view class="weather">
-            <view>{{weatherData.cond_txt}}</view>
-            <view>{{weatherData.wind_dir}}</view>
-            <view>{{weatherData.wind_sc}}</view>
-            <view>PM2.5: {{air.pm25}}</view>
+            <view>{{weatherData.cond_txt}} </view>
+            <view>{{weatherData.wind_dir}} </view>
+            <view>{{weatherData.wind_sc}} </view>
+            <view>PM2.5: {{air.pm25}} </view>
             <view>{{air.qlty}}</view>
           </view>
         </view>
@@ -115,9 +115,13 @@
   </view>
   <!-- 反馈与支持 -->
   <view class="bgwrap">
-    <view class="locationContent">
-    <button size="mini" type="default" open-type="feedback" plain="true" class="bottomBtn">意见反馈</button>
-    <button size="mini" type="default" plain="true" class="bottomBtn">赞赏支持</button>
-    </view>
+    <view class="weui-footer">
+            <view class="weui-footer__links">
+                <navigator url="" class="weui-footer__link">我也是有底线的~</navigator>
+            </view>
+            <view class="weui-footer__text">Copyright © 2019-2020 asysh.zhm</view>
+        </view>
   </view>
+  <menu bindmenuItemClick="menuItemClick" mainmodel="{{mainmodel}}" menulist ="{{menulist}}" ></menu>
+
 </view>
